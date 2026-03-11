@@ -263,7 +263,7 @@ nav.scrolled {
 /* ============================================================
    7. SHARED SECTION STYLES
    ============================================================ */
-.section-wrap { max-width: 1060px; margin: 0 auto; padding: 96px 60px; }
+.section-wrap { max-width: 1060px; margin: 0 auto; padding: 50px 60px; }
 .section-border-top { border-top: 1px solid var(--border); }
 .section-eyebrow {
   font-size: 11px;
@@ -338,6 +338,7 @@ nav.scrolled {
 .exp-list { display: flex; flex-direction: column; }
 .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 40px; padding: 36px 0; border-bottom: 1px solid var(--border); }
 .exp-item:first-child { border-top: 1px solid var(--border); }
+.exp-item:last-child { border-bottom: 0px; }
 .exp-left { padding-top: 3px; }
 .exp-period { font-size: 12px; color: var(--subtle); margin-bottom: 6px; }
 .exp-company { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
@@ -406,7 +407,7 @@ footer { text-align: center; padding: 28px 60px; border-top: 1px solid var(--bor
   #home { padding-top: 40px; min-height: 85svh; }
   .hero-photo-wrap { width: 80vw; max-width: 340px; }
   .hero-text { padding: 0 20px 48px; }
-  .section-wrap { padding: 72px 24px; }
+  .section-wrap { padding: 40px 24px; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .projects-grid { grid-template-columns: 1fr; }
   .exp-item { grid-template-columns: 1fr; gap: 10px; }
@@ -457,6 +458,12 @@ const DownloadIcon = () => (
   </svg>
 );
 
+const MediumIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 1043.63 592.71" fill="currentColor">
+    <path d="M588.67 296.35c0 163.66-131.97 296.36-294.33 296.36C131.97 592.71 0 460.01 0 296.35 0 132.69 131.97 0 294.34 0c162.36 0 294.33 132.69 294.33 296.35zm322.22 0c0 154.04-65.98 278.88-147.39 278.88-81.41 0-147.39-124.84-147.39-278.88 0-154.04 65.98-278.88 147.39-278.88 81.41 0 147.39 124.84 147.39 278.88zm132.74 0c0 137.98-23.2 249.85-51.83 249.85-28.63 0-51.83-111.87-51.83-249.85S963.17 46.5 991.8 46.5c28.63 0 51.83 111.87 51.83 249.85z"/>
+  </svg>
+);
+
 /* ============================================================
    B. TECH ICON MAP  — devicons CDN
    Add/remove entries to change which icons show in skills.
@@ -471,11 +478,10 @@ const ICON_MAP = {
   "Angular":       `${D}/angularjs/angularjs-original.svg`,
   "React Native":  `${D}/react/react-original.svg`,
   "Flutter":       `${D}/flutter/flutter-original.svg`,
-  "TailwindCSS":   `${D}/tailwindcss/tailwindcss-plain.svg`,
+  "TailwindCSS":   `${D}/tailwindcss/tailwindcss-original.svg`,
   "Node.js":       `${D}/nodejs/nodejs-original.svg`,
   "Django":        `${D}/django/django-plain.svg`,
   "FastAPI":       `${D}/fastapi/fastapi-original.svg`,
-  ".NET Core":     `${D}/dotnetcore/dotnetcore-original.svg`,
   "PostgreSQL":    `${D}/postgresql/postgresql-original.svg`,
   "MongoDB":       `${D}/mongodb/mongodb-original.svg`,
   "MySQL":         `${D}/mysql/mysql-original.svg`,
@@ -488,6 +494,12 @@ const ICON_MAP = {
   "Figma":         `${D}/figma/figma-original.svg`,
   "TensorFlow":    `${D}/tensorflow/tensorflow-original.svg`,
   "Grafana":       `${D}/grafana/grafana-original.svg`,
+  "Spring Boot":   `${D}/spring/spring-original.svg`,
+  "JIRA":          `${D}/jira/jira-original.svg`,
+  "Kubernetes":    `${D}/kubernetes/kubernetes-original.svg`,
+  "Cypress":       `${D}/cypressio/cypressio-original.svg`,
+  "Firebase":      `${D}/firebase/firebase-original.svg`,
+  "NextJS":        `${D}/nextjs/nextjs-original.svg`,
 };
 
 /* ============================================================
@@ -496,10 +508,11 @@ const ICON_MAP = {
    ============================================================ */
 const SKILLS = {
   "Languages":      ["TypeScript", "JavaScript", "Python", "Java"],
-  "Frontend":       ["React", "Angular", "React Native", "Flutter", "TailwindCSS"],
-  "Backend":        ["Node.js", "Django", "FastAPI", ".NET Core"],
-  "Databases":      ["PostgreSQL", "MongoDB", "MySQL", "DynamoDB", "ElasticSearch"],
-  "Tools & DevOps": ["Docker", "AWS Lambda", "GraphQL", "GIT", "Figma", "TensorFlow", "Grafana"],
+  "Frontend":       ["React", "Angular","NextJS", "TailwindCSS"],
+  "Backend":        ["Node.js", "Spring Boot", "Micronaut", "Django", "FastAPI", ],
+  "Mobile":         ["React Native", "Flutter"],
+  "Databases":      ["PostgreSQL", "MongoDB", "MySQL", "DynamoDB", "GraphDB", "ElasticSearch", "Firebase"],
+  "Tools & DevOps": ["Docker", "Kubernetes", "Cypress", "AWS Lambda", "GraphQL", "GIT", "Figma", "TensorFlow", "Grafana", "JIRA"],
 };
 
 /* ============================================================
@@ -657,6 +670,7 @@ function App() {
         <div className="social-line"/>
         <a href="https://github.com/SachinduHimash" target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub"><GithubIcon/></a>
         <a href="https://linkedin.com/in/sachindu-himash-peiris" target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn"><LinkedinIcon/></a>
+        <a href="https://medium.com/@himash1997" className="social-link" title="Medium"><MediumIcon/></a>
         <a href="mailto:himash1997@gmail.com" className="social-link" title="Email"><EmailIcon/></a>
         <div className="social-line"/>
       </div>
@@ -712,7 +726,7 @@ function App() {
                 <p>Dual Italian/Sri Lankan nationality, based in Fribourg, Switzerland — comfortable working in English, learning German.</p>
               </div>
               <div className="about-stats">
-                {[["3+","Years of experience"],["4+","Projects shipped"],["2","Degrees earned"],["5k+","Concurrent users handled"]].map(([n,l]) => (
+                {[["3+","Years of experience"],["15+","Projects shipped"],["2","Degrees earned"],["5k+","Concurrent users handled"]].map(([n,l]) => (
                   <div key={l} className="stat-card">
                     <div className="stat-num">{n.replace(/[+k]/g,'')}<span>{n.match(/[+k]+/)?.[0]||''}</span></div>
                     <div className="stat-label">{l}</div>
@@ -723,12 +737,12 @@ function App() {
               <div className="edu-card">
                 <div className="edu-school">University of Bern, Fribourg &amp; Neuchâtel</div>
                 <div className="edu-degree">MSc in Computer Science</div>
-                <div className="edu-meta"><span className="edu-gpa">GPA 5.00 / 6.00</span><span className="edu-year">Sep 2022 – May 2025</span></div>
+                <div className="edu-meta"><span className="edu-year">Sep 2022 – May 2025</span></div>
               </div>
               <div className="edu-card">
                 <div className="edu-school">University of Colombo, School of Computing</div>
                 <div className="edu-degree">BSc in Computer Science</div>
-                <div className="edu-meta"><span className="edu-gpa">GPA 3.52 / 4.00</span><span className="edu-year">Jan 2018 – Apr 2021</span></div>
+                <div className="edu-meta"><span className="edu-year">Jan 2018 – Apr 2021</span></div>
               </div>
             </div>
             <div>
@@ -738,14 +752,6 @@ function App() {
                   <div className="skill-tags">{tags.map(t => <SkillTag key={t} name={t}/>)}</div>
                 </div>
               ))}
-              <div className="skill-group">
-                <div className="skill-group-title">Spoken Languages</div>
-                <div className="skill-tags">
-                  {[["🇬🇧","English C1"],["🇩🇪","German A2"],["🇮🇹","Italian"],["🇱🇰","Sinhala"]].map(([f,l]) => (
-                    <div key={l} className="skill-tag">{f} {l}</div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
